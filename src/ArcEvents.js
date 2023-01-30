@@ -125,8 +125,9 @@ function createStickEvent (payload) {
     typeName,
     {
       detail: {
-        radians: payload.r,
-        force: payload.f
+        side: payload.s,
+        x: payload.x,
+        y: payload.y
       }
     }
   )
@@ -206,8 +207,9 @@ export function createPayload (event, type = null) {
       payload.k = event.key
       break
     case ArcEvents.STICKMOVE:
-      payload.r = event.detail.radians
-      payload.f = event.detail.force
+      payload.s = event.detail.side
+      payload.x = event.detail.x
+      payload.y = event.detail.y
       break
     case ArcEvents.DEVICEBUMP:
       payload.g = 'bump'
